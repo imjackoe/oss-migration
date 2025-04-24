@@ -86,7 +86,7 @@ def process_object(obj, dest_bucket, src_bucket_name, src_prefix, dest_prefix, s
             return
 
     # 跳过相同路径
-    if src_key == dest_key:
+    if SKIP_EXISTS and src_key == dest_key:
         with counter_lock:
             skipped += 1
         with log_lock:
